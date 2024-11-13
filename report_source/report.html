@@ -1,0 +1,327 @@
+<!DOCTYPE html><html><head>
+      <title>report</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+
+.title {
+    font-size: 3rem
+}
+
+table {
+    page-break-inside: avoid;
+}
+
+
+</style>
+<p style="text-align: center;" class="title">
+Astronomical Data Processing
+<br>
+- Report -
+<br>
+</p><div style="font-size: 1rem; text-align: center;">Léo BECHET, M2 CompuPhys 2024-2025</div>
+<p></p>
+<h2 id="i-theoretical-method">Ⅰ Theoretical Method </h2>
+<h3 id="1-introduction-to-photometric-analysis">1. <strong>Introduction to Photometric Analysis</strong> </h3>
+<p>Photometric analysis is a method used to study the brightness variations of astronomical objects over time, providing insights into their physical properties, such as rotation periods. For asteroid <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, we performed a photometric analysis across two observation nights. This section outlines the steps involved in conducting the analysis, from frame alignment to the calculation of the asteroid's rotation period.</p>
+<hr>
+<h3 id="2-observational-setup">2. <strong>Observational Setup</strong> </h3>
+<h4 id="21-target-and-reference-star">2.1 <strong>Target and Reference Star</strong> </h4>
+<p>The photometric analysis of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> was carried out by aligning the frames around the asteroid's position using a bright reference star. The reference star chosen for this study was <strong>2MASS J01132281+0607541</strong>, which was visible in all of the observation frames. The alignment was crucial to ensure that the asteroid’s movement could be tracked relative to a stable coordinate system.</p>
+<h4 id="22-field-of-view-and-image-metadata">2.2 <strong>Field of View and Image Metadata</strong> </h4>
+<p>The observations were made using a field of view of 13.5 x 13.6 arcminutes. The plate solving performed with <strong><a href="http://astrometry.net">astrometry.net</a></strong> provided the following metadata:</p>
+<ul>
+<li><strong><a href="https://nova.astrometry.net/user_images/11285189#annotated">Night 8</a></strong>:
+<ul>
+<li>Center coordinates (RA, Dec): (18.420, 6.057)</li>
+<li>Pixel scale: 0.395 arcsec/pixel</li>
+</ul>
+</li>
+<li><strong><a href="https://nova.astrometry.net/user_images/11356787#annotated">Night 9</a></strong>:
+<ul>
+<li>Center coordinates (RA, Dec): (18.375, 6.033)</li>
+<li>The field size and pixel scale were the same as on Night 8, ensuring consistency between the two nights.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-frame-alignment">3. <strong>Frame Alignment</strong> </h3>
+<h4 id="31-relative-offset-calculation">3.1 <strong>Relative Offset Calculation</strong> </h4>
+<p>To align the frames, we calculated the relative offsets between each consecutive frame based on the position of the reference star. Since the reference star is bright and stable, it served as a reliable anchor for frame registration. We neglected any potential rotational changes and focused solely on translational offsets, assuming that the orientation of the frames remained constant.</p>
+<h4 id="32-reference-frame-setup">3.2 <strong>Reference Frame Setup</strong> </h4>
+<p>The first frame of each observation night was selected as the reference frame. All subsequent frames were aligned to this reference coordinate system by applying the calculated offsets, ensuring that all frames had the same spatial orientation. This step allows us to track the asteroid’s motion in a consistent coordinate system throughout the observations.</p>
+<hr>
+<h3 id="4-positioning-and-tracking-of-1999-td_10">4. <strong>Positioning and Tracking of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong> </h3>
+<h4 id="41-linear-interpolation-of-movement">4.1 <strong>Linear Interpolation of Movement</strong> </h4>
+<p>To track the asteroid’s movement across the frames, we assumed that its motion was linear and uniform. The corrected position of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> at the end of the observation period was used as the reference point for interpolating its position in each frame. The asteroid’s movement was calculated based on this linear assumption, and its position was estimated in each frame accordingly.</p>
+<h4 id="42-frame-by-frame-tracking">4.2 <strong>Frame-by-Frame Tracking</strong> </h4>
+<p>Using the linear interpolation method, we computed the asteroid’s position for each frame in the reference coordinate system. This allowed us to accurately determine the asteroid’s location in each image, ensuring that the brightness measurements were consistent and corresponded to the correct position of the asteroid.</p>
+<hr>
+<h3 id="5-photometric-analysis">5. <strong>Photometric Analysis</strong> </h3>
+<h4 id="51-flux-measurement-and-background-subtraction">5.1 <strong>Flux Measurement and Background Subtraction</strong> </h4>
+<p>Once the asteroid’s position was determined, we measured the flux from the pixels corresponding to the asteroid’s location in each frame. To isolate the asteroid’s flux, we subtracted the background sky flux, which was measured in a nearby region free from bright sources. This step ensured that any variations in brightness due to sky conditions were removed, providing a more accurate measurement of the asteroid's intrinsic brightness. We are however aware of the potential errors this method may introduce due to other object being close to the asteroid.</p>
+<h4 id="52-magnitude-calculation">5.2 <strong>Magnitude Calculation</strong> </h4>
+<p>The background-subtracted flux was then used to compute the apparent magnitude of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> for each frame. The magnitude was calculated using standard photometric relations, where the flux from the object is related to its brightness. By repeating this measurement for each frame, we constructed a time-resolved light curve for the asteroid.</p>
+<hr>
+<h3 id="6-time-series-and-rotation-period-estimation">6. <strong>Time Series and Rotation Period Estimation</strong> </h3>
+<h4 id="61-light-curve-construction">6.1 <strong>Light Curve Construction</strong> </h4>
+<p>For each frame, the Modified Julian Date (MJD) was recorded, allowing us to build a time-series of the asteroid's apparent magnitude. This time-resolved light curve displayed the brightness variations of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> over the course of the two nights of observation.</p>
+<h4 id="62-sinusoidal-fitting-and-period-determination">6.2 <strong>Sinusoidal Fitting and Period Determination</strong> </h4>
+<p>The light curve was then analyzed by fitting a sinusoidal function to the data. Since the asteroid’s brightness variations are assumed to result from its rotation, the sinusoidal fit models these periodic fluctuations. The period of the fitted sinusoidal curve corresponds to the asteroid’s rotation period. By determining the period of the curve, we estimate the rotation period of 1999 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
+<hr>
+<h2 id="ii-application-and-results">Ⅱ Application and Results </h2>
+<h3 id="alpha-observations-on-october-8th"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> Observations on October 8th </h3>
+<p>In this section, we analyze the photometric data collected on October 8th for the asteroid <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. The steps include computing relative and absolute offsets for frame alignment, validating the tracking accuracy, calculating the asteroid’s magnitude, and determining its rotation period.</p>
+<hr>
+<h4 id="alpha1-frame-alignment-and-offset-calculation"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>.1. <strong>Frame Alignment and Offset Calculation</strong> </h4>
+<p>To align frames and ensure accurate tracking of the asteroid, we first computed both relative and absolute offsets for each frame using the reference star <strong>2MASS J01132281+0607541</strong>. This star’s position was measured in each frame to establish a consistent coordinate system throughout the observation period. The relative offsets capture the frame-to-frame changes, while the absolute offsets confirm the star’s overall stability in the field of view.</p>
+<p>To validate tracking accuracy, we plotted the position of the reference star within a defined search box across frames. <strong>Figure 1</strong> shows the relative offset values, while <strong>Figure 2</strong> displays the absolute offsets of the reference star. These plots demonstrate stable alignment, indicating that the tracking setup was robust.</p>
+<table style="border: none">
+  <tbody><tr style="border: none">
+    <td style="text-align: center; border: none">
+      <img src="rsc/n8_off_rel.png" alt="Image 2" width="100%">
+      <p>Figure 1: Relative offsets for Oct 8th.</p>
+    </td>
+    <td style="text-align: center; border: none">
+      <img src="rsc/n8_off_abs.png" alt="Image 1" width="100%">
+      <p>Figure 2: Absolute offsets for Oct 8th.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<h4 id="alpha2-asteroid-position-tracking"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>.2. <strong>Asteroid Position Tracking</strong> </h4>
+<p>Using the computed frame offsets, we tracked the pixel positions of the asteroid across the frames. Key positions include:</p>
+<ul>
+<li><strong>Start position</strong> (Frame 96): (1150, 1156)</li>
+<li><strong>End position</strong> (Frame 266): (1172, 1104)  corrected : (1266, 1109)</li>
+</ul>
+<p>Since the motion is considered to be linear and uniform and each frame has the same exposure time, we proceed to a simple interpolation to get the position for each frame.</p>
+<hr>
+<h4 id="alpha3-asteroid-magnitude-calculation-and-validation"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>.3. <strong>Asteroid Magnitude Calculation and Validation</strong> </h4>
+<p>The photometric analysis of the asteroid’s brightness involved computing the instrumental magnitude for each frame. To validate the magnitude calculations, we displayed subframes centered around the asteroid, allowing visual inspection of the asteroid’s appearance across frames. This inspection confirmed that the magnitude measurements corresponded accurately to the object’s position.</p>
+<p>The final plot showing the evolution of the asteroid’s instrumental magnitude over time is presented in <strong>Figure 3</strong>. This graph reveals the asteroid’s brightness variations, which we analyze further to determine its rotation period.</p>
+<table style="border: none">
+  <tbody><tr style="border: none">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/n8_int_mag.png" alt="Image 2" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p>Figure 3: Evolution of the magnitude relative to the frame number.</p>
+    </td>
+  </tr>
+</tbody></table>
+---
+<h4 id="alpha4-astrometric-calibration-and-magnitude-scaling"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>.4. <strong>Astrometric Calibration and Magnitude Scaling</strong> </h4>
+<p>For accurate magnitude calibration, we performed plate solving on the first frame using <strong><a href="http://astrometry.net">astrometry.net</a></strong>. This provided precise image metadata:</p>
+<ul>
+<li><strong>Center (RA, Dec)</strong>: (18.420, 6.057)</li>
+<li><strong>Field size</strong>: 13.5 x 13.6 arcmin</li>
+<li><strong>Pixel scale</strong>: 0.395 arcsec/pixel</li>
+</ul>
+<p>Using ALADIN, we identified <strong>2MASS J01132281+0607541</strong> as a suitable reference star. This star, cataloged in VIZIER with an R-band magnitude of 13.1, provided a baseline for calibrating our magnitude measurements. The magnitude offset was calculated as:<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>mag_offset</mtext><mo>=</mo><msub><mtext>mag</mtext><mrow><mn>2</mn><mi>M</mi><mi>A</mi><mi>S</mi><mi>S</mi></mrow></msub><mo>−</mo><msub><mtext>mag</mtext><mtext>obs</mtext></msub></mrow><annotation encoding="application/x-tex">\text{mag\_offset} = \text{mag}_{2MASS} - \text{mag}_{\text{obs}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0044em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">mag_offset</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8275em;vertical-align:-0.2441em;"></span><span class="mord"><span class="mord text"><span class="mord">mag</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2342em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">SS</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6747em;vertical-align:-0.2441em;"></span><span class="mord"><span class="mord text"><span class="mord">mag</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.242em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">obs</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span></span></span></span></span><br>
+Adding this offset to the instrumental magnitudes yielded a calibrated mean magnitude for the asteroid around 19.0. <strong>Figure 4</strong> displays the calibrated light curve of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, with a mean magnitude near 19.</p>
+<table style="border: none">
+  <tbody><tr style="border: none">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/n8_cor_mag.png" alt="Image 2" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p>Figure 4: Corrected magnitude using <b>2MASS J01132281+0607541</b> in function of the MJD date.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<h4 id="alpha5-rotation-period-analysis"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>.5. <strong>Rotation Period Analysis</strong> </h4>
+<p>To determine the rotation period, we fitted the magnitude data to a sinusoidal model of the form:<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>amp</mtext><mo>⋅</mo><mi>sin</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mi>a</mi></mfrac><mo>⋅</mo><mi>x</mi><mo>+</mo><mi>b</mi><mo fence="true">)</mo></mrow><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">f(x) = \text{amp} \cdot \sin\left(\frac{2 \pi}{a} \cdot x + b\right) + c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6389em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">amp</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">a</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">b</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span><br>
+where the parameters represent the amplitude, period, phase shift, and mean magnitude, respectively. The fitting process yielded the following results:</p>
+<ul>
+<li><strong>Mean magnitude</strong>: 19.04</li>
+<li><strong>Magnitude variation (amplitude)</strong>: 0.46</li>
+<li><strong>Period</strong>: 0.325 MJD</li>
+</ul>
+<p>From this fit, we conclude that the rotation period of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is approximately 0.325 days, and its mean calibrated magnitude is 19.04. The final sinusoidal fit of the light curve is presented in <strong>Figure 5</strong>, illustrating the periodic brightness variations corresponding to the asteroid’s rotation.</p>
+<table style="width: 100%; border: none;">
+  <tbody><tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/n8_fit.png" alt="Image 2" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p style="text-align: center;">Figure 5: Fitted sinusoid to the observational data.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<h3 id="β-observations-on-october-9th">β Observations on October 9th </h3>
+<p>This section summarizes the photometric analysis conducted on October 9th for asteroid <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, following the methodology established for the October 8th observations. Here, we present the frame alignment, magnitude calculations, and fitted rotation period, based on the data collected on this specific date.</p>
+<hr>
+<h4 id="β1-frame-alignment-and-offset-calculation">β.1. <strong>Frame Alignment and Offset Calculation</strong> </h4>
+<p>Using the reference star <strong>2MASS J01132281+0607541</strong>, relative and absolute offsets were computed to align the frames for October 9th. Tracking accuracy was validated through offset plots. <strong>Figure 6</strong> and <strong>Figure 7</strong> display the relative and absolute offsets, respectively, which confirm the stability of the tracking setup for this date.</p>
+<table style="border: none">
+  <tbody><tr style="border: none">
+    <td style="text-align: center; border: none">
+      <img src="rsc/n9_off_rel.png" alt="Image 6" width="100%">
+      <p>Figure 6: Relative offsets for Oct 9th.</p>
+    </td>
+    <td style="text-align: center; border: none">
+      <img src="rsc/n9_off_abs.png" alt="Image 7" width="100%">
+      <p>Figure 7: Absolute offsets for Oct 9th.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<h4 id="β2-asteroid-position-tracking">β.2. <strong>Asteroid Position Tracking</strong> </h4>
+<p>The asteroid’s movement was tracked using pixel positions in each frame, assuming uniform linear motion. Key positions recorded include:</p>
+<ul>
+<li><strong>Start position</strong> (Frame 66): (1513, 863)</li>
+<li><strong>End position</strong> (Frame 151): (1856, 597)  corrected : (1843, 719)</li>
+</ul>
+<p>Interpolation provided the asteroid’s position across all frames for magnitude calculation.</p>
+<hr>
+<h4 id="β3-asteroid-magnitude-calculation-and-validation">β.3. <strong>Asteroid Magnitude Calculation and Validation</strong> </h4>
+<p>As with the October 8th data, we computed the asteroid’s instrumental magnitude for each frame. Validation was achieved through subframe inspections, which verified consistency in the asteroid's brightness measurements.</p>
+<p>The evolution of the asteroid’s magnitude over time on October 9th is presented in <strong>Figure 8</strong>.</p>
+<table style="border: none">
+  <tbody><tr style="border: none">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/n9_int_mag.png" alt="Image 8" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p>Figure 8: Evolution of the magnitude relative to the frame number for Oct 9th.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<h4 id="β4-astrometric-calibration-and-magnitude-scaling">β.4. <strong>Astrometric Calibration and Magnitude Scaling</strong> </h4>
+<p>Astrometric calibration for October 9th was based on plate solving of the first frame, yielding the following image metadata:</p>
+<ul>
+<li><strong>Center (RA, Dec)</strong>: (18.375, 6.033)</li>
+<li><strong>Field size</strong>: 13.5 x 13.6 arcmin</li>
+<li><strong>Pixel scale</strong>: 0.395 arcsec/pixel</li>
+</ul>
+<p>Magnitude scaling was performed using <strong>2MASS J01132281+0607541</strong> as a reference star with an R-band magnitude of 13.1. The corrected magnitude plot, adjusted with the magnitude offset, is shown in <strong>Figure 9</strong>.</p>
+<table style="border: none">
+  <tbody><tr style="border: none">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/n9_cor_mag.png" alt="Image 9" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p>Figure 9: Corrected magnitude using <b>2MASS J01132281+0607541</b> in function of the MJD date for Oct 9th.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<h4 id="β5-rotation-period-analysis">β.5. <strong>Rotation Period Analysis</strong> </h4>
+<p>The rotation period was derived by fitting the corrected magnitude data to a sinusoidal model, resulting in:</p>
+<ul>
+<li><strong>Mean magnitude</strong>: 19.01</li>
+<li><strong>Magnitude variation (amplitude)</strong>: 0.58</li>
+<li><strong>Period</strong>: 0.372 MJD</li>
+</ul>
+<p><strong>Figure 10</strong> presents the fitted sinusoidal curve for October 9th, highlighting the periodic variations due to the asteroid’s rotation.</p>
+<table style="width: 100%; border: none;">
+  <tbody><tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/n9_fit.png" alt="Image 10" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p style="text-align: center;">Figure 10: Fitted sinusoid to the observational data for Oct 9th.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<p>The analysis for October 9th corroborates the findings from October 8th, with a consistent rotation period and similar mean magnitude, confirming the robustness of our photometric approach for asteroid <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
+<h3 id="γ-combined-data-analysis">γ Combined Data Analysis </h3>
+<p>In this final section, we analyze the combined photometric data from both October 8th and October 9th to produce a comprehensive view of the asteroid <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>'s light curve and rotation period. By merging the datasets from both nights, we increase the temporal coverage and statistical robustness of our measurements.</p>
+<hr>
+<h4 id="γ1-combined-sinusoidal-fit">γ.1. <strong>Combined Sinusoidal Fit</strong> </h4>
+<p>With the combined dataset, we applied the same sinusoidal model as before to fit the magnitude variations across both nights’ observations. The merged data yields a refined fit, summarized by the following parameters:</p>
+<ul>
+<li><strong>Mean magnitude</strong>: 19.02</li>
+<li><strong>Magnitude variation (amplitude)</strong>: 0.49</li>
+<li><strong>Period</strong>: 0.33 MJD</li>
+</ul>
+<p><strong>Figure 11</strong> below presents the fitted sinusoidal curve applied to the combined data. The data points from both nights align closely with the fitted curve, showing a consistent pattern in the asteroid’s brightness fluctuations.</p>
+<table style="width: 100%; border: none;">
+  <tbody><tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/comb_fit.png" alt="Combined Fit Image" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p style="text-align: center;">Figure 11: Combined fit of the sinusoidal model to the October 8th and October 9th data.</p>
+    </td>
+  </tr>
+</tbody></table>
+<hr>
+<h4 id="γ2-goodness-of-fit-mse-and-r2-analysis">γ.2. <strong>Goodness of Fit: MSE and R² Analysis</strong> </h4>
+<p>To assess the fit quality, we calculated the <strong>Mean Squared Error (MSE)</strong> and <strong>R²</strong> metrics for the combined model:</p>
+<ul>
+<li><strong>MSE</strong>: 0.0043</li>
+<li><strong>R²</strong>: 0.88</li>
+</ul>
+<p>The <strong>MSE</strong> provides an estimate of the average squared difference between the observed and predicted magnitudes, where a lower MSE indicates a closer fit. The value of 0.0043 suggests a minimal error in the magnitude predictions, reflecting high accuracy.</p>
+<p>The <strong>R²</strong> value of 0.88 indicates that 88% of the variance in the asteroid’s brightness is explained by the sinusoidal model, suggesting a strong correlation between the fitted model and the observed data. This high R² value confirms that the combined fit effectively captures the periodic brightness variations and represents a slight improvement over the fits for individual nights.</p>
+<p>However, it’s important to consider that the sinusoidal model is a simplification and does not capture all factors contributing to magnitude variations. The brightness of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> fluctuates due to the asteroid’s irregular shape and surface features, which cause variations as different parts of the asteroid reflect sunlight during its rotation. Additionally, the limitations of ground-based observations introduce unpredictable atmospheric effects, such as seeing conditions, light scattering, and slight shifts in background noise, which can further influence the data.</p>
+<p>These influences mean that while a sinusoidal model is useful for approximating the rotation period, it cannot account for every subtle fluctuation in brightness. Despite these complexities, the R² value of 0.88 is high and demonstrates that the sinusoidal model provides a reliable and accurate representation of the overall periodic brightness variation. For our observational purposes, this fit is highly effective in estimating the asteroid’s rotation period and mean magnitude.</p>
+<hr>
+<h4 id="γ3-comparison-with-individual-nights">γ.3. <strong>Comparison with Individual Nights</strong> </h4>
+<p>Compared to the separate analyses for October 8th and October 9th, the combined data produces a similar mean magnitude and period, reinforcing the reliability of the observed rotation period. However, the combined dataset provides a more accurate amplitude and overall fit, with improvements in both MSE and R². These enhancements result from the increased sample size and continuity of data across two nights, which smooths out potential noise and captures the object’s periodic variation more robustly.</p>
+<p>By combining observations, we conclude with increased confidence that the asteroid’s mean magnitude is approximately 19.02, with a rotation period of about 0.33 MJD, and a magnitude variation of 0.49. These findings provide a comprehensive view of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1999</mn><mtext>&nbsp;</mtext><mi>T</mi><msub><mi>D</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">1999\ TD_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">1999</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>’s photometric characteristics and rotational behavior.</p>
+<h2 id="appendix">Appendix </h2>
+<h3 id="a-aladin-exploitation">A. ALADIN Exploitation </h3>
+<table style="width: 100%; border: none;">
+  <tbody><tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/ALADIN_8.png" alt="Combined Fit Image" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p style="text-align: center;">Figure A.1: Capture of the ALADIN exploitation with 2MASS catalog loaded.</p>
+    </td>
+  </tr>
+</tbody></table>
+<table style="width: 100%; border: none;">
+  <tbody><tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/ALADIN_9.png" alt="Combined Fit Image" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p style="text-align: center;">Figure A.2: Capture of the ALADIN exploitation with a combination of catalogs loaded.</p>
+    </td>
+  </tr>
+</tbody></table>
+<p>Above are shown the plate-solved exploitation on ALADIN used to determine the reference star for magnitude calibration.</p>
+<h3 id="b-reference-stars">B. Reference Stars </h3>
+<table style="width: 100%; border: none;">
+  <tbody><tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/ref_star_8.png" alt="Combined Fit Image" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p style="text-align: center;">Figure B.1: Reference star used for offsets computation of the 8th October.</p>
+    </td>
+  </tr>
+</tbody></table>
+<table style="width: 100%; border: none;">
+  <tbody><tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/ref_star_9.png" alt="Combined Fit Image" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+      <p style="text-align: center;">Figure B.2: Reference star used for offsets computation of the 9th October.</p>
+    </td>
+  </tr>
+</tbody></table>
+<p>Above are shown which star was selected as the reference star for the computation of offsets for each night.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
