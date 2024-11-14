@@ -9,6 +9,35 @@ table {
 }
 
 
+p {
+  font-size: 0.9rem
+}
+
+td > p {
+  text-align: center
+}
+
+* {
+  text-align: justify;
+  text-justify: inter-word;
+
+}
+
+
+/* Initialize the counter */
+body {
+  counter-reset: h2-counter;
+}
+
+/* Style the H2 elements with Roman numerals */
+h2::before {
+  counter-increment: h2-counter;
+  content: counter(h2-counter, upper-roman) ". ";
+  font-weight: bold;
+  font-family: Times
+}
+
+
 </style>
 
 
@@ -25,7 +54,7 @@ Astronomical Data Processing
 
 
 
-## Ⅰ Theoretical Method 
+## Theoretical Method 
 
 ### 1. **Introduction to Photometric Analysis**
 Photometric analysis is a method used to study the brightness variations of astronomical objects over time, providing insights into their physical properties, such as rotation periods. For asteroid $1999\ TD_{10}$, we performed a photometric analysis across two observation nights. This section outlines the steps involved in conducting the analysis, from frame alignment to the calculation of the asteroid's rotation period.
@@ -101,7 +130,7 @@ The light curve was then analyzed by fitting a sinusoidal function to the data. 
 
 
 
-## Ⅱ Application and Results
+## Application and Results
 
 ### $\alpha$ Observations on October 8th
 
@@ -166,7 +195,7 @@ For accurate magnitude calibration, we performed plate solving on the first fram
    - **Field size**: 13.5 x 13.6 arcmin
    - **Pixel scale**: 0.395 arcsec/pixel
 
-Using ALADIN, we identified **2MASS J01132281+0607541** as a suitable reference star. This star, cataloged in VIZIER with an R-band magnitude of 13.1, provided a baseline for calibrating our magnitude measurements. The magnitude offset was calculated as:
+Using ALADIN, we identified **2MASS J01132281+0607541** as a suitable reference star. This star, cataloged in VIZIER[1] with an R-band magnitude of 13.1[2], provided a baseline for calibrating our magnitude measurements. The magnitude offset was calculated as:
    \[
    \text{mag\_offset} = \text{mag}_{2MASS} - \text{mag}_{\text{obs}}
    \]
@@ -289,7 +318,7 @@ Astrometric calibration for October 9th was based on plate solving of the first 
    - **Field size**: 13.5 x 13.6 arcmin
    - **Pixel scale**: 0.395 arcsec/pixel
 
-Magnitude scaling was performed using **2MASS J01132281+0607541** as a reference star with an R-band magnitude of 13.1. The corrected magnitude plot, adjusted with the magnitude offset, is shown in **Figure 9**.
+Magnitude scaling was performed using **2MASS J01132281+0607541** as a reference star with an R-band magnitude of 13.1[2]. The corrected magnitude plot, adjusted with the magnitude offset, is shown in **Figure 9**.
 
 <table style="border: none">
   <tr style="border: none">
@@ -376,6 +405,20 @@ By combining observations, we conclude with increased confidence that the astero
 
 
 
+
+## Reference
+
+**[1]** **Ochsenbein, F., Bauer, P., & Marcout, J.** (2000). The VizieR database of astronomical catalogues. *Astronomy and Astrophysics Supplement Series, 143*(1), 23-32.
+
+**[2]** **Monet, D., et al.** (1998). The USNO-A2.0 Catalogue. *U.S. Naval Observatory*.
+
+
+
+
+
+
+
+
 ## Appendix
 
 ### A. ALADIN Exploitation
@@ -422,3 +465,37 @@ Above are shown the plate-solved exploitation on ALADIN used to determine the re
 </table>
 
 Above are shown which star was selected as the reference star for the computation of offsets for each night.
+
+
+
+### C. Uncertainties calculations
+
+#### Magnitude Uncertainty Calculation
+
+This section provides a preliminary approach to understanding uncertainties in magnitude calculations and is intended as a starting point for future, more detailed analyses of these data.
+
+The uncertainty in our computed magnitude primarily arises from the choice of circular apertures for both the target and sky background measurements. Specifically, we use a circular aperture of radius \( r \) centered on the target and a circular annulus defined by inner radius \( r_{\text{in}} \) and outer radius \( r_{\text{out}} \) for the background. These radius choices influence the uncertainty as follows:
+
+1. **Target Aperture Uncertainty**: The target flux (\( F_{\text{target}} \)) depends on the area of the circular aperture, which is proportional to \( \pi r^2 \). The accuracy of \( F_{\text{target}} \) can vary with the aperture size, affecting the captured flux if the radius does not perfectly encompass the object’s signal. Too small an aperture may miss flux from the object, while too large an aperture may include excess sky background, both of which increase uncertainty.
+
+2. **Sky Background Aperture Uncertainty**: The sky background flux (\( F_{\text{sky}} \)) is calculated from the annular region with area proportional to \( \pi (r_{\text{out}}^2 - r_{\text{in}}^2) \). This area defines the number of pixels sampled, which affects the accuracy of the background estimation. A larger annular area provides a more stable background measurement but increases the chance of including unwanted sources, while a smaller area risks a less representative sky background sample. This uncertainty propagates into the calculated magnitude as it affects the background-subtracted flux for the target.
+
+The **total uncertainty in flux** is influenced by the chosen aperture sizes and can be expressed as:
+   \[
+   \sigma_F = \sqrt{\sigma_{\text{target}}^2 + \sigma_{\text{sky}}^2}
+   \]
+where \( \sigma_{\text{target}} \) and \( \sigma_{\text{sky}} \) denote the uncertainties due to the target and sky apertures, respectively. The final **magnitude uncertainty** (\( \sigma_{\text{mag}} \)) can then be approximated as:
+   \[
+   \sigma_{\text{mag}} = \frac{2.5}{\ln(10)} \cdot \frac{\sigma_{F}}{F_{\text{target}}}
+   \]
+
+#### Additional Sources of Noise and Uncertainty
+
+Apart from aperture effects, other instrumental and environmental factors contribute to magnitude uncertainty:
+
+- **Quantum Efficiency**: Variations in the detector's sensitivity to light at different wavelengths can affect the measured flux, as quantum efficiency is wavelength-dependent and may introduce wavelength-based bias.
+- **Cosmic Ray Events**: High-energy particles striking the detector can create transient spikes in pixel values, which could contaminate flux measurements, especially if occurring near the target or within the background annulus.
+- **Readout Noise**: Each pixel measurement incurs readout noise, an electronic signal variability from the CCD or CMOS detector that adds uncertainty, especially in low-flux conditions.
+- **Atmospheric Effects**: Ground-based observations are susceptible to atmospheric disturbances such as turbulence, humidity, and airglow, all of which can cause variability in flux measurements.
+
+These factors collectively contribute to the uncertainty in the measured magnitude, and though mitigated by careful calibration and processing, they represent limits to the precision of ground-based photometric measurements. Thus it is important to take them into account to produce trust-worthy results.
