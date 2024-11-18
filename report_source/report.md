@@ -205,7 +205,7 @@ Adding this offset to the instrumental magnitudes yielded a calibrated mean magn
   <tr style="border: none">
     <td style="text-align: center; border: none; width: 500rem;">
       <img src="rsc/n8_cor_mag.png" alt="Image 2" style="max-width: 60%; height: auto; display: block; margin: 0 auto;"/>
-      <p>Figure 4: Corrected magnitude using <b>2MASS J01132281+0607541</b> in function of the MJD date.</p>
+      <p>Figure 4: Corrected magnitude using <b>2MASS J01132281+0607541</b> in function of the frame number.</p>
     </td>
   </tr>
 </table>
