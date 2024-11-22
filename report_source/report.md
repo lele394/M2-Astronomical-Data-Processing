@@ -38,20 +38,87 @@ h2::before {
 }
 
 
+
+
+
+        /* General styles */
+        /* p {
+            text-align: center;
+        } */
+
+        .title {
+            font-size: 2rem;
+        }
+
+        .image-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Ensure images are centered */
+        .image-container img {
+            height: 50%;
+            object-fit: contain;
+            width: 40%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Print styles */
+        @media print {
+            .image-container img {
+                width: 50%;  /* Adjust width for print */
+                height: auto;  /* Maintain aspect ratio */
+            }
+            /* Ensuring text and images remain centered in print */
+            p, .image-container {
+                text-align: center;
+                margin: 0;
+            }
+        }
+
+
 </style>
 
 
+<div class="image-container">
+    <img src="rsc/ubfc.png" alt="UBFC Logo" style="width: 80%"/>
+</div>
 
-<p style="text-align: center;" class="title">
-Astronomical Data Processing
+---
+
 <br>
-- Report -
 <br>
-<div style="font-size: 1rem; text-align: center;">Léo BECHET, M2 CompuPhys 2024-2025</div>
+<br>
+<!-- Title and Information -->
+<p class="title" style="text-align: center; font-size: 2.8rem">
+    Astronomical Data Processing
+    <br>
+    - Report -
+    <br>
+    <div style="font-size: 1rem; text-align: center;">Léo BECHET, M2 CompuPhys 2024-2025</div>
+    <br>
+    <div style="font-size: 1rem; text-align: center;">Under the supervision of Philippe ROUSSELOT</div>
 </p>
 
 
+<br>
+<br>
+<br>
 
+---
+
+<br>
+<br>
+<br>
+
+<!-- Second Image -->
+<div class="image-container">
+    <img src="rsc/SIMBAD_8oct.png" alt="SIMBAD Image" style="width:60%"/>
+</div>
+
+<div style="page-break-before: always;"></div>
 
 
 ## Theoretical Method 
@@ -406,6 +473,15 @@ By combining observations, we conclude with increased confidence that the astero
 
 
 
+
+
+
+
+
+<div style="page-break-before: always;"></div>
+
+
+
 ## Reference
 
 **[1]** **Ochsenbein, F., Bauer, P., & Marcout, J.** (2000). The VizieR database of astronomical catalogues. *Astronomy and Astrophysics Supplement Series, 143*(1), 23-32.
@@ -414,6 +490,7 @@ By combining observations, we conclude with increased confidence that the astero
 
 
 
+<div style="page-break-before: always;"></div>
 
 
 
@@ -472,6 +549,7 @@ Above are shown which star was selected as the reference star for the computatio
 
 #### Magnitude Uncertainty Calculation
 
+
 This section provides a preliminary approach to understanding uncertainties in magnitude calculations and is intended as a starting point for future, more detailed analyses of these data.
 
 The uncertainty in our computed magnitude primarily arises from the choice of circular apertures for both the target and sky background measurements. Specifically, we use a circular aperture of radius \( r \) centered on the target and a circular annulus defined by inner radius \( r_{\text{in}} \) and outer radius \( r_{\text{out}} \) for the background. These radius choices influence the uncertainty as follows:
@@ -489,6 +567,25 @@ where \( \sigma_{\text{target}} \) and \( \sigma_{\text{sky}} \) denote the unce
    \sigma_{\text{mag}} = \frac{2.5}{\ln(10)} \cdot \frac{\sigma_{F}}{F_{\text{target}}}
    \]
 
+When the following technique is applied to our data, we get the following error bars.
+
+<table style="border: none">
+  <tr style="border: none">
+    <td style="text-align: center; border: none">
+      <img src="rsc/uncert/n8_t1.png" alt="Image 6" width="100%"/>
+      <p>Figure C.1: Uncertainty technique applied to night 8.</p>
+    </td>
+    <td style="text-align: center; border: none">
+      <img src="rsc/uncert/n9_t1.png" alt="Image 7" width="100%"/>
+      <p>Figure C.2: Uncertainty technique applied to night 9.</p>
+    </td>
+  </tr>
+</table>
+
+It is obvious that the errors computed are very high, however, we believe there is an issue with our computations, and they ought to be cross-checked.
+
+
+
 #### Additional Sources of Noise and Uncertainty
 
 Apart from aperture effects, other instrumental and environmental factors contribute to magnitude uncertainty:
@@ -499,3 +596,60 @@ Apart from aperture effects, other instrumental and environmental factors contri
 - **Atmospheric Effects**: Ground-based observations are susceptible to atmospheric disturbances such as turbulence, humidity, and airglow, all of which can cause variability in flux measurements.
 
 These factors collectively contribute to the uncertainty in the measured magnitude, and though mitigated by careful calibration and processing, they represent limits to the precision of ground-based photometric measurements. Thus it is important to take them into account to produce trust-worthy results.
+
+
+
+### D. Fitting Flux Using a 2D Gaussian
+
+We would like to present another approach that could be use to process the data.
+
+To determine the total flux of an object, we fit the pixel values within a selected region to a 2D Gaussian model. This method accounts for the actual light distribution of the object, providing a more accurate flux measurement than simple aperture photometry. 
+
+1. **Region Selection**: A sub-image is extracted around the object, large enough to encompass the full extent of the source.
+
+2. **Model Definition**: A 2D Gaussian function is used to represent the light distribution, characterized by parameters such as the peak intensity, position, widths, orientation, and background level.
+
+3. **Fitting Process**: The Gaussian parameters are optimized using a least-squares fitting algorithm to minimize the difference between the observed pixel values and the model.
+
+4. **Flux Computation**: The total flux is calculated by integrating the fitted Gaussian, accounting for the object's shape and size. The background contribution is subtracted to isolate the object's flux.
+
+5. **Uncertainty**: The uncertainty in the flux is derived from the covariance of the fitted parameters, ensuring a reliable estimate of the measurement accuracy.
+
+We hope that this approach would allow us to extract more accurate informations on the object and the light curve. Additionally, since the asteroid can be considered as a spot, we can use multiple frames to derive a master set of parameters for the width of the gaussian.
+
+### E. Correlation Graphs
+#### Individual nights
+The two correlation plots illustrate the relationship between the measured and fitted light curves of an asteroid, showcasing a significant degree of correlation. In the scatter plots, the data points represent the observed magnitudes (measured light curve) plotted against the predicted magnitudes (fitted light curve). A clear trend can be observed, with most of the data points closely aligning with the line of perfect correlation (\(y = x\)), suggesting that the fitted model accurately describes the observed variations in brightness.
+
+The first graph emphasizes the individual data points, with the fitted values closely following the observed magnitudes. This alignment indicates that the sinusoidal model employed for the fitting captures the periodic behavior of the asteroid's light curve, which is characteristic of asteroids showing periodic fluctuations due to their rotation. The second graph reinforces this observation.
+
+<table style="border: none">
+  <tr style="border: none">
+    <td style="text-align: center; border: none">
+      <img src="rsc/uncert/n8_corr_graph.png" alt="Image 6" width="100%"/>
+      <p>Figure E.1: Correlation plot between data and fit of night 8.</p>
+    </td>
+    <td style="text-align: center; border: none">
+      <img src="rsc/uncert/n9_corr_graph.png" alt="Image 7" width="100%"/>
+      <p>Figure E.2: Correlation plot between data and fit of night 9.</p>
+    </td>
+  </tr>
+</table>
+
+#### Total observations
+The correlation plot demonstrates a strong relationship between the measured and fitted light curves of the asteroid, with an \(R^2\) value of 0.88. This indicates that 88% of the variability in the measured magnitudes can be explained by the fitted model, which is a solid result for astrophysical data, where noise and other factors can introduce variations.
+
+The scatter plot clearly shows that the majority of the observed data points fall near the line of perfect correlation (\(y = x\)), suggesting that the fitted values closely match the measured magnitudes. The alignment of the data points indicates that the sinusoidal model, used to describe the asteroid’s light curve, effectively captures its periodic variations, likely resulting from the asteroid's rotation.
+
+While the correlation is not perfect, as evidenced by some data points deviating from the perfect correlation line, the fit is still very good, with only a few discrepancies between the observed and fitted values. This is further supported by the high \(R^2\) value, which confirms that the model explains most of the data's behavior.
+
+<table style="width: 100%; border: none;">
+  <tr style="border: none;">
+    <td style="text-align: center; border: none; width: 500rem;">
+      <img src="rsc/uncert/full_corr_graph.png" alt="Combined Fit Image" style="max-width: 60%; height: auto; display: block; margin: 0 auto;"/>
+      <p style="text-align: center;">Figure E.3: Correlation graph of the total observations.</p>
+    </td>
+  </tr>
+</table>
+
+In conclusion, the fit is robust and provides a reliable representation of the asteroid's light curve. The \(R^2\) value of 0.88 suggests that the model is highly effective, and the residual deviations are minimal, making the fitted sinusoidal model an excellent choice for analyzing the asteroid's rotational characteristics.
