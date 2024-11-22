@@ -207,7 +207,7 @@ In this section, we analyze the photometric data collected on October 8th for th
 
 #### $\alpha$.1. **Frame Alignment and Offset Calculation**
 
-To align frames and ensure accurate tracking of the asteroid, we first computed both relative and absolute offsets for each frame using the reference star **2MASS J01132281+0607541**. This star’s position was measured in each frame to establish a consistent coordinate system throughout the observation period. The relative offsets capture the frame-to-frame changes, while the absolute offsets confirm the star’s overall stability in the field of view.
+To align frames and ensure accurate tracking of the asteroid, we first computed both relative and absolute offsets for each frame using the reference star **2MASS J01132281+0607541**. This star’s position was measured in each frame using a 2D convolution on a subframe to establish a consistent coordinate system throughout the observation period. The relative offsets capture the frame-to-frame changes, while the absolute offsets confirm the star’s overall stability in the field of view.
 
 To validate tracking accuracy, we plotted the position of the reference star within a defined search box across frames. **Figure 1** shows the relative offset values, while **Figure 2** displays the absolute offsets of the reference star. These plots demonstrate stable alignment, indicating that the tracking setup was robust.
 
