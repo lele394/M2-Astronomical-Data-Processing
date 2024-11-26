@@ -73,7 +73,7 @@ h2::before {
             }
             /* Ensuring text and images remain centered in print */
             p, .image-container {
-                text-align: center;
+                
                 margin: 0;
             }
         }
@@ -90,7 +90,6 @@ h2::before {
 
 <br>
 <br>
-<br>
 <!-- Title and Information -->
 <p class="title" style="text-align: center; font-size: 2.8rem">
     Astronomical Data Processing
@@ -103,7 +102,6 @@ h2::before {
 </p>
 
 
-<br>
 <br>
 <br>
 
